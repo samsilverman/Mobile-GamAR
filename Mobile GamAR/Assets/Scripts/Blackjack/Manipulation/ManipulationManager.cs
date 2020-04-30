@@ -16,9 +16,6 @@ public class ManipulationManager : MonoBehaviour
     bool isRotating;
     bool isPeaking;
 
-    float maxPos = 4f;
-    float minPos = -4f;
-
     private void Start()
     {
         ClearManipulation();
