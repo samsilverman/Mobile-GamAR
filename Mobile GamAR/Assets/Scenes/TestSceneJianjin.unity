@@ -150,10 +150,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 691f24adf63844b5e9012373779ae523, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  augmentationObject: {fileID: 1474028136397072, guid: 40de577162b89453c822b67f8af1e097,
-    type: 3}
   maxNumber: 10
   dataSetName: QRCode
+  patFilePath: PokerConfig.txt
 --- !u!4 &99185605
 Transform:
   m_ObjectHideFlags: 0
