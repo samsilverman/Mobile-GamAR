@@ -19,6 +19,7 @@ public class DeckManager : MonoBehaviour
     {
         // Remove all visible cards from game
         GameObject[] activeCards = GameObject.FindGameObjectsWithTag("Card");
+        Debug.Log(activeCards.Length);
         foreach (GameObject card in activeCards)
         {
             Destroy(card);
