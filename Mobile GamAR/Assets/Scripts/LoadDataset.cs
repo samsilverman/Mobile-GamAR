@@ -1,20 +1,58 @@
 ﻿using System;
 using System.Linq;
 using System.Collections;
+using System.IO;
 using System.Collections.Generic;
 using UnityEngine;
 using Vuforia;
 
 public class LoadDataset : MonoBehaviour {
 
-    public GameObject augmentationObject;
 	public int maxNumber = 10;
 	public string dataSetName = "QRCode";
-	public TrackableBehaviour[] mtb;
+	public String patFilePath = "PokerConfig.txt";
+	private bool hasConfig;
+	private TrackableBehaviour[] mtb;
+	private String[] augObjNames;
+	private int[] patternNames;
+    private GameObject[] augmentationObjects;
 
     void Start () {
+		ReadConfig();
         VuforiaARController.Instance.RegisterVuforiaStartedCallback(OnVuforiaStarted);
     }
+
+	void ReadConfig() {
+        var fileAddress = System.IO.Path.Combine(
+			Application.streamingAssetsPath,
+			patFilePath);
+        FileInfo fInfo = new FileInfo(fileAddress);
+		hasConfig = false;
+        if (!fInfo.Exists)
+			return;
+		hasConfig = true;
+        string s = "";
+		StreamReader r = new StreamReader(fileAddress);
+		// byte[] data = new byte[1024];
+		// data = Encoding.UTF8.GetBytes(r.ReadToEnd());
+		// s = Encoding.UTF8.GetString(data, 0, data.Length);
+		s = r.ReadToEnd();
+		var lines = s.Split('\n');
+		patternNames = new int[lines.Length];
+		augObjNames = new string[lines.Length];
+		augmentationObjects = new GameObject[lines.Length];
+		for(int i = 0; i < lines.Length; i ++)
+		{
+			if (lines[i].Length < 1)
+				break;
+			string[] items = lines[i].Split(' ');
+			patternNames[i] = Int32.Parse(items[0]);
+			augObjNames[i] = items[1];
+			augmentationObjects[i] = Resources.Load<GameObject>(items[1]);
+			Debug.Log(items[0]);
+			//Debug.Log(augmentationObjects[i]);
+		}
+	}
 
     void OnVuforiaStarted()
     {
@@ -54,17 +92,14 @@ public class LoadDataset : MonoBehaviour {
 			mtb[i].gameObject.AddComponent<DefaultTrackableEventHandler>();
 			mtb[i].gameObject.AddComponent<TurnOffBehaviour>();
 
-			if (augmentationObject != null) {
-				// instantiate augmentation object and parent to trackable
-				GameObject augmentation = (GameObject)GameObject.Instantiate(augmentationObject);
-				augmentation.transform.parent = mtb[i].gameObject.transform;
-				augmentation.transform.localPosition = new Vector3(0f, 0f, 0f);
-				augmentation.transform.localRotation = Quaternion.identity;
-				augmentation.transform.localScale = new Vector3(0.005f, 0.005f, 0.005f);
-				augmentation.gameObject.SetActive(true);
-			} else {
-				Debug.Log("<color=yellow>Warning: No augmentation object specified for: " + mtb[i].TrackableName + "</color>");
-			}
+
+			// instantiate augmentation object and parent to trackable
+			GameObject augmentation = (GameObject)GameObject.Instantiate(augmentationObjects[i]);
+			augmentation.transform.parent = mtb[i].gameObject.transform;
+			augmentation.transform.localPosition = new Vector3(0f, 0f, 0f);
+			augmentation.transform.localRotation = Quaternion.identity;
+			augmentation.transform.localScale = new Vector3(0.005f, 0.005f, 0.005f);
+			augmentation.gameObject.SetActive(true);
 		}
 	} 
 }
