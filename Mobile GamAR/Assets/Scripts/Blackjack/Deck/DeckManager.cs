@@ -10,54 +10,114 @@ public class DeckManager : MonoBehaviour
 
     List<GameObject> deck;
 
+    float cardDistance = 0.0005f;
+
     private void Start()
     {
+        CreateNewDeck();
+    }
+
+    private void CreateNewDeck()
+    {
+        deck = new List<GameObject>();
+        foreach (GameObject cardPrefab in cards)
+        {
+            GameObject cardPrefabCopy = Instantiate(cardPrefab);
+            AddCardToTopOfDeck(cardPrefabCopy);
+        }
         Shuffle();
+    }
+
+    public void AddCardToTopOfDeck(GameObject card)
+    {
+        GameObject newCard = Instantiate(card, transform.position, transform.rotation, transform);
+        newCard.GetComponent<BoxCollider>().enabled = false;
+        Destroy(card);
+
+        newCard.transform.position = new Vector3(
+            transform.position.x,
+            transform.position.y + (deck.Count * cardDistance),
+            transform.position.z);
+        deck.Insert(0, newCard);
+    }
+
+    public void AddCardToBottomOfDeck(GameObject card)
+    {
+        deck.Insert(0, card);
+
+        GameObject[] deckArray = deck.ToArray();
+
+        deck = new List<GameObject>();
+
+        foreach (GameObject deckCard in deckArray)
+        {
+            AddCardToTopOfDeck(deckCard);
+        }
     }
 
     public void Shuffle()
     {
-        // Remove all visible cards from game
-        GameObject[] activeCards = GameObject.FindGameObjectsWithTag("Card");
-        Debug.Log(activeCards.Length);
-        foreach (GameObject card in activeCards)
+        if (deck.Count == 0)
         {
-            Destroy(card);
+            return;
         }
 
+        GameObject[] deckArray = deck.ToArray();
         // Shuffle cards
         for (int i = 0; i < 100; i++)
         {
-            int randomIndex1 = Random.Range(0, cards.Length);
-            int randomIndex2 = Random.Range(0, cards.Length);
+            int randomIndex1 = Random.Range(0, deckArray.Length);
+            int randomIndex2 = Random.Range(0, deckArray.Length);
 
-            GameObject tempCard = cards[randomIndex1];
-            cards[randomIndex1] = cards[randomIndex2];
-            cards[randomIndex2] = tempCard;
+            GameObject tempCard = deckArray[randomIndex1];
+            deckArray[randomIndex1] = deckArray[randomIndex2];
+            deckArray[randomIndex2] = tempCard;
         }
 
-        // Add shuffled cards to deck
         deck = new List<GameObject>();
-        foreach (GameObject card in cards)
+
+        foreach (GameObject card in deckArray)
         {
-            deck.Add(card);
+            AddCardToTopOfDeck(card);
         }
 
-        DisplayDeck();
+        //// Remove all visible cards from game
+        //GameObject[] activeCards = GameObject.FindGameObjectsWithTag("Card");
+        //Debug.Log(activeCards.Length);
+        //foreach (GameObject card in activeCards)
+        //{
+        //    Destroy(card);
+        //}
+
+        //// Shuffle cards
+        //for (int i = 0; i < 100; i++)
+        //{
+        //    int randomIndex1 = Random.Range(0, cards.Length);
+        //    int randomIndex2 = Random.Range(0, cards.Length);
+
+        //    GameObject tempCard = cards[randomIndex1];
+        //    cards[randomIndex1] = cards[randomIndex2];
+        //    cards[randomIndex2] = tempCard;
+        //}
+
+        //// Add shuffled cards to deck
+        //deck = new List<GameObject>();
+        //foreach (GameObject card in cards)
+        //{
+        //    deck.Add(card);
+        //}
+
+        //DisplayDeck();
     }
 
-    void DisplayDeck()
+    public void CollectAllCards()
     {
-        float positionOffset = 0.0005f;
-
-        // Stack deck's cards on each other
-        for (int i = 0; i < deck.Count; i++)
+        GameObject[] activeCards = GameObject.FindGameObjectsWithTag("Card");
+        foreach (GameObject activeCard in activeCards)
         {
-            deck[i] = Instantiate(deck[i], transform.position, transform.rotation, transform);
-            deck[i].transform.position = new Vector3(deck[i].transform.position.x, deck[i].transform.position.y + (positionOffset * i), deck[i].transform.position.z);
-            // Remove box collider of deck cards (dont want to select a non-dealt card)
-            deck[i].GetComponent<BoxCollider>().enabled = false;
+            Destroy(activeCard);
         }
+        CreateNewDeck();
     }
 
     public void DealCard()
@@ -67,26 +127,11 @@ public class DeckManager : MonoBehaviour
             return;
         }
 
-        // remove top card
-        GameObject card = deck[deck.Count - 1];
-        deck.Remove(card);
+        GameObject card = deck[0];
+        deck.RemoveAt(0);
 
         card.transform.position = dealtCardSpawnPoint.position;
         card.transform.parent = transform.parent;
         card.GetComponent<BoxCollider>().enabled = true;
-    }
-
-    public void Discard(GameObject card)
-    {
-        if (deck.Count == 0)
-        {
-            deck.Add(card);
-        }
-        else
-        {
-            deck.Insert(deck.Count - 1, card);
-        }
-        DisplayDeck();
-        Destroy(card);
     }
 }

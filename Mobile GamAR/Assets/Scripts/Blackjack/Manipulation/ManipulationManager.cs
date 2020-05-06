@@ -5,6 +5,7 @@ using UnityEngine;
 public class ManipulationManager : MonoBehaviour
 {
     GameObject selectedObject;
+
     public GameObject handToolbar;
     ToolbarManager toolbarManager;
 
@@ -14,11 +15,10 @@ public class ManipulationManager : MonoBehaviour
 
     bool isMoving;
     bool isRotating;
-    bool isPeaking;
 
     private void Start()
     {
-        ClearManipulation();
+        DeSelectObject();
 
         toolbarManager = handToolbar.GetComponent<ToolbarManager>();
     }
@@ -54,29 +54,16 @@ public class ManipulationManager : MonoBehaviour
             Quaternion rotation = selectedObject.transform.rotation;
             selectedObject.transform.rotation = new Quaternion(0, rotation.y, 0, rotation.w);
         }
-
-        else if (isPeaking)
-        {
-            Vector3 position = selectedObject.transform.position;
-            Quaternion rotation = selectedObject.transform.rotation;
-
-            if (toolbarManager.GetActive())
-            {
-                selectedObject.transform.position = new Vector3(position.x, 0.15f, position.z);
-                selectedObject.transform.rotation = new Quaternion(-50f, rotation.y, rotation.z, rotation.w);
-            }
-            else
-            {
-                selectedObject.transform.position = new Vector3(position.x, 0.02f, position.z);
-                selectedObject.transform.rotation = new Quaternion(0f, rotation.y, rotation.z, rotation.w);
-            }
-        }
     }
 
-    public void SelectObject(GameObject gameObject)
+    public bool SelectObject(GameObject gameObject)
     {
-        ClearManipulation();
+        if (selectedObject != null)
+        {
+            return false;
+        }
         selectedObject = gameObject;
+        return true;
     }
 
     public void DeSelectObject()
@@ -103,6 +90,7 @@ public class ManipulationManager : MonoBehaviour
         }
         ClearManipulation();
         selectedObject.transform.Rotate(new Vector3(0, 0, 180));
+
     }
 
     public void DiscardCard()
@@ -111,33 +99,33 @@ public class ManipulationManager : MonoBehaviour
         {
             return;
         }
-        ClearManipulation();
-        deckManager.Discard(selectedObject);
+        ClearManipulation(); // might be repetitive
+        deckManager.AddCardToBottomOfDeck(selectedObject);
         DeSelectObject();
     }
 
     public void PeakCard()
     {
-        if (selectedObject == null || !selectedObject.CompareTag("Card"))
-        {
-            return;
-        }
-        ClearManipulation();
+        //if (selectedObject == null || !selectedObject.CompareTag("Card"))
+        //{
+        //    return;
+        //}
+        //ClearManipulation();
 
-        if (!isPeaking)
-        {
-            isPeaking = true;
-        }
-        else
-        {
-            isPeaking = false;
+        //if (!isPeaking)
+        //{
+        //    isPeaking = true;
+        //}
+        //else
+        //{
+        //    isPeaking = false;
 
-            Vector3 position = selectedObject.transform.position;
-            Quaternion rotation = selectedObject.transform.rotation;
+        //    Vector3 position = selectedObject.transform.position;
+        //    Quaternion rotation = selectedObject.transform.rotation;
 
-            selectedObject.transform.position = new Vector3(position.x, 0.02f, position.z);
-            selectedObject.transform.rotation = new Quaternion(0f, rotation.y, rotation.z, rotation.w);
-        }
+        //    selectedObject.transform.position = new Vector3(position.x, 0.02f, position.z);
+        //    selectedObject.transform.rotation = new Quaternion(0f, rotation.y, rotation.z, rotation.w);
+        //}
     }
 
     public void DiscardChip()
@@ -151,21 +139,10 @@ public class ManipulationManager : MonoBehaviour
         DeSelectObject();
     }
 
-
     void ClearManipulation()
     {
         isMoving = false;
         isRotating = false;
-        if (isPeaking)
-        {
-            isPeaking = false;
-            Vector3 position = selectedObject.transform.position;
-            Quaternion rotation = selectedObject.transform.rotation;
-
-            selectedObject.transform.position = new Vector3(position.x, 0.02f, position.z);
-            selectedObject.transform.rotation = new Quaternion(0f, rotation.y, rotation.z, rotation.w);
-        }
-
     }
 
 }

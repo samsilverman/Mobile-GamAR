@@ -21,26 +21,38 @@ public class ToolbarManager : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Deck"))
         {
-            manipulationManager.SelectObject(other.gameObject);
-            uiManager.EnableDeckUI();
+            bool result = manipulationManager.SelectObject(other.gameObject);
+            if (result)
+            {
+                uiManager.EnableDeckUI();
+            }
         }
 
         else if (other.gameObject.CompareTag("Card"))
         {
-            manipulationManager.SelectObject(other.gameObject);
-            uiManager.EnableCardUI();
+            bool result = manipulationManager.SelectObject(other.gameObject);
+            if (result)
+            {
+                uiManager.EnableCardUI();
+            }
         }
 
         else if (other.gameObject.CompareTag("Chip Case"))
         {
-            manipulationManager.SelectObject(other.gameObject);
-            uiManager.EnableChipCaseUI();
+            bool result = manipulationManager.SelectObject(other.gameObject);
+            if (result)
+            {
+                uiManager.EnableChipCaseUI();
+            }
         }
 
         else if (other.gameObject.CompareTag("Chip"))
         {
-            manipulationManager.SelectObject(other.gameObject);
-            uiManager.EnableChipUI();
+            bool result = manipulationManager.SelectObject(other.gameObject);
+            if (result)
+            {
+                uiManager.EnableChipUI();
+            }
         }
     }
 
