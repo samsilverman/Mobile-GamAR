@@ -2601,14 +2601,14 @@ MonoBehaviour:
   m_Script: {fileID: -1631628248, guid: 4bc5fd733b147194692297d23f623541, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mTrackableName: king_of_clubs2
+  mTrackableName: tarmac
   mInitializedInEditor: 1
-  mDataSetPath: Vuforia/cards.xml
+  mDataSetPath: Vuforia/S19_COMSW4172.xml
   mPreserveChildSize: 0
-  mAspectRatio: 1.452
+  mAspectRatio: 0.7
   mImageTargetType: 0
-  mWidth: 1
-  mHeight: 1.452
+  mWidth: 0.24765
+  mHeight: 0.173355
   mRuntimeTexture: {fileID: 0}
 --- !u!4 &375791903
 Transform:
@@ -7555,7 +7555,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: 'king_of_clubs2Material
+  m_Name: 'tarmacMaterial
 
     25562'
   m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
@@ -7570,7 +7570,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: a5f8541b83f546919871b36f3c4ac1fd, type: 3}
+        m_Texture: {fileID: 2800000, guid: 661c9947bde948b79ae4ff175fea03ad, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
@@ -9889,7 +9889,7 @@ Mesh:
       format: 0
       dimension: 0
     m_DataSize: 128
-    _typelessdata: 000000bf0000000023db39bf000000000000803f000000000000000000000000000000bf0000000023db393f000000000000803f00000000000000000000803f0000003f0000000023db39bf000000000000803f000000000000803f000000000000003f0000000023db393f000000000000803f000000000000803f0000803f
+    _typelessdata: f697fdbd00000000f983b1bd000000000000803f000000000000000000000000f697fdbd00000000f983b13d000000000000803f00000000000000000000803ff697fd3d00000000f983b1bd000000000000803f000000000000803f00000000f697fd3d00000000f983b13d000000000000803f000000000000803f0000803f
   m_CompressedMesh:
     m_Vertices:
       m_NumItems: 0
