@@ -10,6 +10,7 @@ public class ManipulationManager : MonoBehaviour
     ToolbarManager toolbarManager;
 
     public DeckManager deckManager;
+    public ChipCaseManager chipCaseManager;
 
     public Transform arCamera;
 
@@ -59,12 +60,7 @@ public class ManipulationManager : MonoBehaviour
 
         else if (isPeaking)
         {
-            selectedObject.transform.position = new Vector3(
-                selectedObject.transform.position.x,
-                0.06f,
-                selectedObject.transform.position.z);
-
-            selectedObject.transform.LookAt(arCamera);
+            // TODO: Implement
         }
     }
 
@@ -114,7 +110,7 @@ public class ManipulationManager : MonoBehaviour
             return;
         }
         ClearManipulation(); // might be repetitive
-        deckManager.AddCardToBottomOfDeck(selectedObject);
+        deckManager.DiscardCard(selectedObject);
         DeSelectObject();
     }
 
@@ -125,19 +121,7 @@ public class ManipulationManager : MonoBehaviour
             return;
         }
 
-        selectedObject.transform.position = new Vector3(
-            selectedObject.transform.position.x,
-            0.01f,
-            selectedObject.transform.position.z);
-
-        selectedObject.transform.rotation = new Quaternion(
-            0f,
-            selectedObject.transform.rotation.y,
-            0f,
-            selectedObject.transform.rotation.w);
-
-        ClearManipulation();
-        isPeaking = !isPeaking;
+        // TODO: Implement
     }
 
     public void DiscardChip()
@@ -147,7 +131,7 @@ public class ManipulationManager : MonoBehaviour
             return;
         }
         ClearManipulation();
-        Destroy(selectedObject);
+        chipCaseManager.DiscardChip(selectedObject);
         DeSelectObject();
     }
 
@@ -155,20 +139,6 @@ public class ManipulationManager : MonoBehaviour
     {
         isMoving = false;
         isRotating = false;
-
-        if (isPeaking)
-        {
-            selectedObject.transform.position = new Vector3(
-                selectedObject.transform.position.x,
-                0.01f,
-                selectedObject.transform.position.z);
-
-            selectedObject.transform.rotation = new Quaternion(
-                0f,
-                selectedObject.transform.rotation.y,
-                0f,
-                selectedObject.transform.rotation.w);
-        }
         isPeaking = false;
     }
 
