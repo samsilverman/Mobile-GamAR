@@ -1,9 +1,10 @@
 ﻿<Properties StartupConfiguration="{C81F233A-5AC8-A155-814F-8574B1013642}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PlayingCards/Deck/DeckManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/BotManager.cs">
     <Files>
       <File FileName="Assets/Scripts/PlayingCards/Chip Case/ChipCaseManager.cs" Line="176" Column="39" />
-      <File FileName="Assets/Scripts/PlayingCards/Manipulation/ManipulationManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/PlayingCards/Manipulation/ManipulationManager.cs" />
       <File FileName="Assets/Scripts/PlayingCards/Deck/DeckManager.cs" Line="185" Column="50" />
+      <File FileName="Assets/BotManager.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -13,14 +14,13 @@
               <Node name="Scripts" expanded="True">
                 <Node name="PlayingCards" expanded="True">
                   <Node name="Chip Case" expanded="True" />
-                  <Node name="Deck" expanded="True">
-                    <Node name="DeckManager.cs" selected="True" />
-                  </Node>
+                  <Node name="Deck" expanded="True" />
                   <Node name="Manipulation" expanded="True" />
                   <Node name="Toolbar" expanded="True" />
                   <Node name="UI" expanded="True" />
                 </Node>
               </Node>
+              <Node name="BotManager.cs" selected="True" />
             </Node>
           </Node>
         </State>
@@ -29,7 +29,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="7776e8f6-554c-4e2a-8a31-208b89ad72d1" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="1c7abccd-7cf3-4b1b-93ca-b8aaae2feaa9" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
