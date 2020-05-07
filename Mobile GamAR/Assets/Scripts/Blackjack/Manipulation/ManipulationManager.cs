@@ -15,6 +15,7 @@ public class ManipulationManager : MonoBehaviour
 
     bool isMoving;
     bool isRotating;
+    bool isPeaking;
 
     private void Start()
     {
@@ -34,18 +35,19 @@ public class ManipulationManager : MonoBehaviour
         {
             if (!toolbarManager.GetActive())
             {
-                ClearManipulation();
                 return;
             }
             // y of 0 keeps going below surface... not sure why
-            selectedObject.transform.position = new Vector3(toolbarManager.toolbarTip.position.x, 0.01f, toolbarManager.toolbarTip.position.z);
+            selectedObject.transform.position = new Vector3(
+                toolbarManager.toolbarTip.position.x,
+                0.01f,
+                toolbarManager.toolbarTip.position.z);
         }
 
         else if (isRotating)
         {
             if (!toolbarManager.GetActive())
             {
-                ClearManipulation();
                 return;
             }
 
@@ -53,6 +55,16 @@ public class ManipulationManager : MonoBehaviour
             selectedObject.transform.LookAt(toolbarTip);
             Quaternion rotation = selectedObject.transform.rotation;
             selectedObject.transform.rotation = new Quaternion(0, rotation.y, 0, rotation.w);
+        }
+
+        else if (isPeaking)
+        {
+            selectedObject.transform.position = new Vector3(
+                selectedObject.transform.position.x,
+                0.06f,
+                selectedObject.transform.position.z);
+
+            selectedObject.transform.LookAt(arCamera);
         }
     }
 
@@ -74,11 +86,13 @@ public class ManipulationManager : MonoBehaviour
 
     public void MoveObject()
     {
+        ClearManipulation();
         isMoving = !isMoving;
     }
 
     public void RotateObject()
     {
+        ClearManipulation();
         isRotating = !isRotating;
     }
 
@@ -106,26 +120,24 @@ public class ManipulationManager : MonoBehaviour
 
     public void PeakCard()
     {
-        //if (selectedObject == null || !selectedObject.CompareTag("Card"))
-        //{
-        //    return;
-        //}
-        //ClearManipulation();
+        if (selectedObject == null || !selectedObject.CompareTag("Card"))
+        {
+            return;
+        }
 
-        //if (!isPeaking)
-        //{
-        //    isPeaking = true;
-        //}
-        //else
-        //{
-        //    isPeaking = false;
+        selectedObject.transform.position = new Vector3(
+            selectedObject.transform.position.x,
+            0.01f,
+            selectedObject.transform.position.z);
 
-        //    Vector3 position = selectedObject.transform.position;
-        //    Quaternion rotation = selectedObject.transform.rotation;
+        selectedObject.transform.rotation = new Quaternion(
+            0f,
+            selectedObject.transform.rotation.y,
+            0f,
+            selectedObject.transform.rotation.w);
 
-        //    selectedObject.transform.position = new Vector3(position.x, 0.02f, position.z);
-        //    selectedObject.transform.rotation = new Quaternion(0f, rotation.y, rotation.z, rotation.w);
-        //}
+        ClearManipulation();
+        isPeaking = !isPeaking;
     }
 
     public void DiscardChip()
@@ -143,6 +155,21 @@ public class ManipulationManager : MonoBehaviour
     {
         isMoving = false;
         isRotating = false;
+
+        if (isPeaking)
+        {
+            selectedObject.transform.position = new Vector3(
+                selectedObject.transform.position.x,
+                0.01f,
+                selectedObject.transform.position.z);
+
+            selectedObject.transform.rotation = new Quaternion(
+                0f,
+                selectedObject.transform.rotation.y,
+                0f,
+                selectedObject.transform.rotation.w);
+        }
+        isPeaking = false;
     }
 
 }

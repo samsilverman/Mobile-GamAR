@@ -1,10 +1,10 @@
 ﻿<Properties StartupConfiguration="{C81F233A-5AC8-A155-814F-8574B1013642}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Blackjack/Chip Case/ChipCaseManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Blackjack/Manipulation/ManipulationManager.cs">
     <Files>
       <File FileName="Assets/Scripts/Blackjack/Deck/DeckManager.cs" Line="20" Column="33" />
-      <File FileName="Assets/Scripts/Blackjack/Manipulation/ManipulationManager.cs" Line="130" Column="1" />
-      <File FileName="Assets/Scripts/Blackjack/Toolbar/ToolbarManager.cs" Line="37" Column="14" />
-      <File FileName="Assets/Scripts/Blackjack/Chip Case/ChipCaseManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Blackjack/Manipulation/ManipulationManager.cs" Line="62" Column="57" />
+      <File FileName="Assets/Scripts/Blackjack/Toolbar/ToolbarManager.cs" />
+      <File FileName="Assets/Scripts/Blackjack/Chip Case/ChipCaseManager.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -14,12 +14,12 @@
               <Node name="Scripts" expanded="True">
                 <Node name="Blackjack" expanded="True">
                   <Node name="Card Stack" expanded="True" />
-                  <Node name="Chip Case" expanded="True">
-                    <Node name="ChipCaseManager.cs" selected="True" />
-                  </Node>
+                  <Node name="Chip Case" expanded="True" />
                   <Node name="Chip Stack" expanded="True" />
                   <Node name="Deck" expanded="True" />
-                  <Node name="Manipulation" expanded="True" />
+                  <Node name="Manipulation" expanded="True">
+                    <Node name="ManipulationManager.cs" selected="True" />
+                  </Node>
                   <Node name="Toolbar" expanded="True" />
                 </Node>
                 <Node name="TestPlayingCard" expanded="True" />
@@ -32,7 +32,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="ce312478-6719-4190-b5d0-83342766af4d" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="7776e8f6-554c-4e2a-8a31-208b89ad72d1" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

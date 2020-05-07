@@ -12,9 +12,25 @@ public class DeckManager : MonoBehaviour
 
     float cardDistance = 0.0005f;
 
+    GameObject dealtCard;
+
     private void Start()
     {
         CreateNewDeck();
+        dealtCard = null;
+    }
+
+    private void Update()
+    {
+        if (dealtCard != null)
+        {
+            dealtCard.transform.position = Vector3.MoveTowards(dealtCard.transform.position, dealtCardSpawnPoint.position, Time.deltaTime);
+
+            if (dealtCard.transform.position == dealtCardSpawnPoint.position)
+            {
+                dealtCard = null;
+            }
+        }
     }
 
     private void CreateNewDeck()
@@ -80,34 +96,6 @@ public class DeckManager : MonoBehaviour
         {
             AddCardToTopOfDeck(card);
         }
-
-        //// Remove all visible cards from game
-        //GameObject[] activeCards = GameObject.FindGameObjectsWithTag("Card");
-        //Debug.Log(activeCards.Length);
-        //foreach (GameObject card in activeCards)
-        //{
-        //    Destroy(card);
-        //}
-
-        //// Shuffle cards
-        //for (int i = 0; i < 100; i++)
-        //{
-        //    int randomIndex1 = Random.Range(0, cards.Length);
-        //    int randomIndex2 = Random.Range(0, cards.Length);
-
-        //    GameObject tempCard = cards[randomIndex1];
-        //    cards[randomIndex1] = cards[randomIndex2];
-        //    cards[randomIndex2] = tempCard;
-        //}
-
-        //// Add shuffled cards to deck
-        //deck = new List<GameObject>();
-        //foreach (GameObject card in cards)
-        //{
-        //    deck.Add(card);
-        //}
-
-        //DisplayDeck();
     }
 
     public void CollectAllCards()
@@ -127,10 +115,15 @@ public class DeckManager : MonoBehaviour
             return;
         }
 
+        if (dealtCard != null)
+        {
+            return;
+        }
+
         GameObject card = deck[0];
         deck.RemoveAt(0);
-
-        card.transform.position = dealtCardSpawnPoint.position;
+        dealtCard = card;
+        //card.transform.position = dealtCardSpawnPoint.position;
         card.transform.parent = transform.parent;
         card.GetComponent<BoxCollider>().enabled = true;
     }
