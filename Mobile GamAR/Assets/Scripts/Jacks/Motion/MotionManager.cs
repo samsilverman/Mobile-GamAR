@@ -22,12 +22,12 @@ public class MotionManager : MonoBehaviour
     {
         if (movingLeft)
         {
-            world.Rotate(0f, speed * Time.deltaTime, 0f);
+            world.Rotate(0f, -speed * Time.deltaTime, 0f);
         }
 
         else if (movingRight)
         {
-            world.Rotate(0f, -speed * Time.deltaTime, 0f);
+            world.Rotate(0f, speed * Time.deltaTime, 0f);
         }
     }
 

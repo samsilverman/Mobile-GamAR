@@ -9,6 +9,7 @@ TagManager:
   - Card
   - Chip Case
   - Chip
+  - Ball
   layers:
   - Default
   - TransparentFX
