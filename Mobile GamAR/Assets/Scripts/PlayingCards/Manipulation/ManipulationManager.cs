@@ -135,7 +135,7 @@ public class ManipulationManager : MonoBehaviour
         DeSelectObject();
     }
 
-    void ClearManipulation()
+    public void ClearManipulation()
     {
         isMoving = false;
         isRotating = false;
