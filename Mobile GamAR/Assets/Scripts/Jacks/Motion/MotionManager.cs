@@ -8,43 +8,43 @@ public class MotionManager : MonoBehaviour
 
     public float speed;
 
-    bool movingLeft;
-    bool movingRight;
+    bool movingWorldLeft;
+    bool movingWorldRight;
 
     // Start is called before the first frame update
     void Start()
     {
-        StopMove();
+        StopWorldMove();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (movingLeft)
+        if (movingWorldLeft)
         {
             world.Rotate(0f, -speed * Time.deltaTime, 0f);
         }
 
-        else if (movingRight)
+        else if (movingWorldRight)
         {
             world.Rotate(0f, speed * Time.deltaTime, 0f);
         }
     }
 
-    public void MoveLeft()
+    public void MoveWorldLeft()
     {
-        movingLeft = true;
+        movingWorldLeft = true;
     }
 
-    public void MoveRight()
+    public void MoveWorldRight()
     {
-        movingRight = true;
+        movingWorldRight = true;
     }
 
-    public void StopMove()
+    public void StopWorldMove()
     {
-        movingLeft = false;
-        movingRight = false;
+        movingWorldLeft = false;
+        movingWorldRight = false;
     }
 
 }

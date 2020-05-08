@@ -8,38 +8,37 @@ public class JacksToolbarManager : MonoBehaviour
 
     public Transform toolbarTip;
 
-    GameObject ball;
-    List<GameObject> jacks;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        ball = null;
-        jacks = new List<GameObject>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (ball != null)
-        {
-            ball.transform.position = toolbarTip.position;
-        }
-    }
+    public BallManager ballManager;
+    public JacksManager jacksManager;
 
     private void OnTriggerEnter(Collider other)
     {
+        if (holdingObject())
+        {
+            return;
+        }
+
         if (other.gameObject.CompareTag("Ball"))
         {
-            uiManager.EnableBallUI();
-            ball = other.gameObject;
-            Rigidbody rb = ball.GetComponent<Rigidbody>();
-            rb.isKinematic = true;
+            Rigidbody rb = other.gameObject.GetComponent<Rigidbody>();
+            if (rb.isKinematic)
+            {
+                uiManager.EnableBallUI();
+            }
+        }
+
+        else if (other.gameObject.CompareTag("Jack"))
+        {
+            Rigidbody rb = other.gameObject.GetComponent<Rigidbody>();
+            if (rb.isKinematic)
+            {
+                uiManager.EnableJacksUI();
+            }
         }
     }
 
-    public void dropBall()
+    bool holdingObject()
     {
-        ball = null;
+        return ballManager.isHoldingBall() || jacksManager.isHoldingJacks();
     }
 }

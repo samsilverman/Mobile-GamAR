@@ -10,6 +10,9 @@ TagManager:
   - Chip Case
   - Chip
   - Ball
+  - Jack
+  - BallManager
+  - JacksManager
   layers:
   - Default
   - TransparentFX
