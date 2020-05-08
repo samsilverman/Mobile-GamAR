@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BallManager : MonoBehaviour
 {
@@ -12,15 +10,16 @@ public class BallManager : MonoBehaviour
 
     public GameObject ball;
 
-    bool inHand;
+    private bool inHand;
 
-    void Start()
+    private void Start()
     {
+        // ball is not in hand and in default position at start
         inHand = false;
         MoveBallToDefaultPosition();
     }
 
-    void Update()
+    private void Update()
     {
         // if ball is in hand, keep ball on toolbar
         if (inHand)
@@ -28,7 +27,7 @@ public class BallManager : MonoBehaviour
             ball.transform.position = toolbarManager.toolbarTip.position;
         }
 
-        // if ball is not in hand and is done bouncing, set ball to kinematic
+        // if ball is not in hand and is not bouncing, isKinematic is true so ball does not move
         else
         {
             Rigidbody rb = ball.GetComponent<Rigidbody>();
@@ -43,7 +42,7 @@ public class BallManager : MonoBehaviour
     public void CollectBall()
     {
         inHand = true;
-
+        // isKinematic is true so ball does not fall out of hand
         Rigidbody rb = ball.GetComponent<Rigidbody>();
         rb.isKinematic = true;
     }
@@ -51,9 +50,9 @@ public class BallManager : MonoBehaviour
     public void DropBall()
     {
         inHand = false;
+        // isKinematic is false so ball falls from hand
         Rigidbody rb = ball.GetComponent<Rigidbody>();
         rb.isKinematic = false;
-        ballCollider.ResetBounce();
     }
 
     public bool IsHoldingBall()
@@ -63,16 +62,10 @@ public class BallManager : MonoBehaviour
 
     public void MoveBallToDefaultPosition()
     {
+        // isKinematic is true so ball does not move from default position
         Rigidbody rb = ball.GetComponent<Rigidbody>();
         rb.isKinematic = true;
 
         ball.transform.position = defaultBallPoint.position;
-        ball.transform.rotation = defaultBallPoint.rotation;
     }
-
-    public bool HasBounced()
-    {
-        return ballCollider.HasBounced();
-    }
-
 }

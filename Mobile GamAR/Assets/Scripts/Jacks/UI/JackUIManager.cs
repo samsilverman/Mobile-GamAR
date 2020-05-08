@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class JackUIManager : MonoBehaviour
@@ -13,9 +11,9 @@ public class JackUIManager : MonoBehaviour
 
     public Text jackCountText;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
+        // disable all UIs at start
         DisableMoveUI();
         DisableBallUI();
         DisableJacksUI();
@@ -47,13 +45,13 @@ public class JackUIManager : MonoBehaviour
     public void EnableJacksUI()
     {
         DisableBallUI();
-        clearJackLabel();
+        ClearJackLabel();
         jacksUI.SetActive(true);
     }
 
     public void DisableJacksUI()
     {
-        clearJackLabel();
+        ClearJackLabel();
         jacksUI.SetActive(false);
     }
 
@@ -62,7 +60,7 @@ public class JackUIManager : MonoBehaviour
         jackCountText.text = "(" + count.ToString() + ")";
     }
 
-    void clearJackLabel()
+    private void ClearJackLabel()
     {
         jackCountText.text = "";
     }

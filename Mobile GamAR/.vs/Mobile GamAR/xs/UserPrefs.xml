@@ -1,25 +1,10 @@
 ﻿<Properties StartupConfiguration="{C81F233A-5AC8-A155-814F-8574B1013642}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Jacks/Objects/BallManager.cs">
-    <Files>
-      <File FileName="Assets/Scripts/Jacks/UI/JackUIManager.cs" Line="19" Column="25" />
-      <File FileName="Assets/Scripts/Jacks/Objects/JacksManager.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Jacks/Objects/BallManager.cs" Line="70" Column="11" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Mobile GamAR" expanded="True">
-            <Node name="Assets" expanded="True">
-              <Node name="Scripts" expanded="True">
-                <Node name="Jacks" expanded="True">
-                  <Node name="Objects" expanded="True">
-                    <Node name="BallManager.cs" selected="True" />
-                  </Node>
-                  <Node name="Toolbar" expanded="True" />
-                  <Node name="UI" expanded="True" />
-                </Node>
-              </Node>
-            </Node>
+            <Node name="Assets" expanded="True" />
           </Node>
         </State>
       </Pad>

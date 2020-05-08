@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class JacksManager : MonoBehaviour
@@ -9,18 +8,18 @@ public class JacksManager : MonoBehaviour
     public JacksToolbarManager toolbarManager;
 
     public List<GameObject> jacks;
+    private bool inHand;
 
-    bool inHand;
-
-    void Start()
+    private void Start()
     {
+        // jacks are not in hand and in default position at start
         inHand = false;
         MoveJacksToDefaultPosition();
     }
 
-    void Update()
+    private void Update()
     {
-        // if jacks are in hand, keep all jacks on toolbar
+        // if jacks are in hand, keep jacks on toolbar
         if (inHand)
         {
             foreach (GameObject jack in jacks)
@@ -30,7 +29,7 @@ public class JacksManager : MonoBehaviour
             }
         }
 
-        // if jacks re not in hand and are not falling, set kinematic to true
+        // if jacks are not in hand and are not falling, isKinematic is true so jacks do not move
         else
         {
             foreach (GameObject jack in jacks)
@@ -47,7 +46,7 @@ public class JacksManager : MonoBehaviour
     public void CollectJacks()
     {
         inHand = true;
-
+        // isKinematic is true so jacks do not fall out of hand
         foreach (GameObject jack in jacks)
         {
             Rigidbody rb = jack.GetComponent<Rigidbody>();
@@ -58,7 +57,7 @@ public class JacksManager : MonoBehaviour
     public void DropJacks()
     {
         inHand = false;
-
+        // isKinematic is false so jacks fall from hand
         foreach (GameObject jack in jacks)
         {
             Rigidbody rb = jack.GetComponent<Rigidbody>();
@@ -81,15 +80,15 @@ public class JacksManager : MonoBehaviour
 
     public void MoveJackToDefaultPosition(GameObject jack)
     {
-        // display jacks in a even spaced line
-
+        // isKinematic is true so jacks fo not move from default position
         Rigidbody rb = jack.GetComponent<Rigidbody>();
         rb.isKinematic = true;
 
+        // access jackIndex based off number in jack's GameObject name
         int jackIndex = int.Parse(jack.name.Substring(12, 1));
 
+        // space jacks evenly apart using jackIndex for placement 
         float offset = (-4.5f + jackIndex) / 100;
-
         Vector3 newPostion = new Vector3(
             defaultJacksPoint.position.x + offset,
             defaultJacksPoint.position.y,
@@ -97,6 +96,5 @@ public class JacksManager : MonoBehaviour
             );
 
         jack.transform.position = newPostion;
-        jack.transform.rotation = defaultJacksPoint.rotation;
     }
 }

@@ -1,40 +1,22 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿// NOTE: Ball must have collider attached to empty game object child b/c ball is a trigger
+
 using UnityEngine;
 
 public class BallCollider : MonoBehaviour
 {
-    BallManager ballManager;
-
-    int bounceCount;
+    private BallManager ballManager;
 
     private void Start()
     {
         ballManager = GameObject.FindGameObjectWithTag("BallManager").GetComponent<BallManager>();
-        ResetBounce();
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            bounceCount += 1;
-        }
-
+        // if ball falls off table, reset its postion to default position
         if (collision.gameObject.CompareTag("Respawn"))
         {
             ballManager.MoveBallToDefaultPosition();
         }
-    }
-
-    public bool HasBounced()
-    {
-        return bounceCount > 1;
-    }
-
-    public void ResetBounce()
-    {
-        bounceCount = 0;
     }
 }
