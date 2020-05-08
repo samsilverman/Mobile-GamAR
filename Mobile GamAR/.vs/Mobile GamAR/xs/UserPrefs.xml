@@ -1,10 +1,19 @@
 ﻿<Properties StartupConfiguration="{C81F233A-5AC8-A155-814F-8574B1013642}|">
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Scenes/SceneLoadManager.cs">
+    <Files>
+      <File FileName="Assets/Scripts/Scenes/SceneLoadManager.cs" Line="1" Column="1" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Mobile GamAR" expanded="True">
-            <Node name="Assets" expanded="True" />
+            <Node name="Assets" expanded="True">
+              <Node name="Scripts" expanded="True">
+                <Node name="Scenes" expanded="True">
+                  <Node name="SceneLoadManager.cs" selected="True" />
+                </Node>
+              </Node>
+            </Node>
           </Node>
         </State>
       </Pad>
