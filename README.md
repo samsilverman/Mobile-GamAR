@@ -4,10 +4,10 @@ Mobile GamAR
 
 2. Names & UNIs:
 
-Irene Chen (ic2409)
-Sam Silverman (sss2287)
-Bingtang Wang (bw2631)
-Jianjin Xu (jx2386)
+- Irene Chen (ic2409)
+- Sam Silverman (sss2287)
+- Bingtang Wang (bw2631)
+- Jianjin Xu (jx2386)
 
 3. Date of Submission:
 
