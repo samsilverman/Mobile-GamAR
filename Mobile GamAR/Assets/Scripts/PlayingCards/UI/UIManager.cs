@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
@@ -10,14 +8,14 @@ public class UIManager : MonoBehaviour
     public GameObject chipCaseUI;
     public GameObject chipUI;
 
-    ChipCaseManager chipCaseManager;
+    private ChipCaseManager chipCaseManager;
     public Text whiteChipText;
     public Text redChipText;
     public Text greenChipText;
     public Text blueChipText;
     public Text blackChipText;
 
-    void Start()
+    private void Start()
     {
         DisableDeckUI();
         DisableCardUI();

@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class ChipCaseManager : MonoBehaviour
@@ -17,27 +16,31 @@ public class ChipCaseManager : MonoBehaviour
     public Transform blackChipSpawnPoint;
 
     // amount of each chip to deal
-    int whiteChipAmount;
-    int redChipAmount;
-    int greenChipAmount;
-    int blueChipAmount;
-    int blackChipAmount;
+    private int whiteChipAmount;
+    private int redChipAmount;
+    private int greenChipAmount;
+    private int blueChipAmount;
+    private int blackChipAmount;
 
-    List<GameObject> dealtWhiteChips;
-    List<GameObject> dealtRedChips;
-    List<GameObject> dealtGreenChips;
-    List<GameObject> dealtBlueChips;
-    List<GameObject> dealtBlackChips;
+    // Lists of dealt chips
+    private List<GameObject> dealtWhiteChips;
+    private List<GameObject> dealtRedChips;
+    private List<GameObject> dealtGreenChips;
+    private List<GameObject> dealtBlueChips;
+    private List<GameObject> dealtBlackChips;
 
     // spacing between chips stacked
-    float chipDistance = 0.003f;
+    private float chipDistance = 0.003f;
 
-    List<GameObject> collectedChips;
+    // lists of chips to collect
+    private List<GameObject> collectedChips;
 
-    GameObject discardedChip;
+    // individual chip to discard
+    private GameObject discardedChip;
 
     private void Start()
     {
+        // initalizations
         dealtWhiteChips = new List<GameObject>();
         dealtRedChips = new List<GameObject>();
         dealtGreenChips = new List<GameObject>();
@@ -48,30 +51,33 @@ public class ChipCaseManager : MonoBehaviour
 
         discardedChip = null;
 
+        // no chip to deal at start
         ClearChipAmounts();
     }
 
     private void Update()
     {
-        // move chips towards chipCase
+        // if there are chips to collect
         if (collectedChips.Count > 0)
         {
-            //create copy of collectedChips to allow removal without errors
+            // create copy of collectedChips to allow removal in loop without errors
             GameObject[] collectedChipsCopy = collectedChips.ToArray();
 
+            // move each collected chip towards chip case (animation)
             foreach (GameObject collectedChip in collectedChipsCopy)
             {
                 collectedChip.transform.position = Vector3.MoveTowards(collectedChip.transform.position, transform.position, Time.deltaTime);
-                // remove collectedChip from collectedChips if at chipCase
+                // if collected chip is at the chip case, remove from collectedChips (done animation)
                 if (collectedChip.transform.position == transform.position)
                 {
                     collectedChips.Remove(collectedChip);
                 }
             }
 
-            // remove all chips once at chipCase
+            // if all collected chips are at the chip case
             if (collectedChips.Count == 0)
             {
+                // remove all chips from game
                 GameObject[] chips = GameObject.FindGameObjectsWithTag("Chip");
 
                 foreach (GameObject chip in chips)
@@ -81,30 +87,38 @@ public class ChipCaseManager : MonoBehaviour
             }
         }
 
+        // if there are white chips to deal
         if (dealtWhiteChips.Count > 0)
         {
+            // number of white chips in correct deal location
             int doneChipsCount = 0;
 
+            // move each white chip to correct deal location
             for (int i = 0; i < dealtWhiteChips.Count; i++)
             {
+                // deal position (allows for stacking)
                 Vector3 chipPosition = new Vector3(
                     whiteChipSpawnPoint.position.x,
                     whiteChipSpawnPoint.position.y + (i * chipDistance),
                     whiteChipSpawnPoint.position.z);
+                // (animation)
                 dealtWhiteChips[i].transform.position = Vector3.MoveTowards(dealtWhiteChips[i].transform.position, chipPosition, Time.deltaTime);
 
+                // if white chip in correct location, increment doneChipsCount 
                 if (dealtWhiteChips[i].transform.position == chipPosition)
                 {
                     doneChipsCount += 1;
                 }
             }
 
+            // if # of doneChipsCount equals # of chips to deal, then clear chips to deal (done animation)
             if (doneChipsCount == dealtWhiteChips.Count)
             {
                 dealtWhiteChips = new List<GameObject>();
             }
         }
 
+        // if there are red chips to deal... (same process as white chips to deal)
         if (dealtRedChips.Count > 0)
         {
             int doneChipsCount = 0;
@@ -129,6 +143,7 @@ public class ChipCaseManager : MonoBehaviour
             }
         }
 
+        // if there are green chips to deal... (same process as white chips to deal)
         if (dealtGreenChips.Count > 0)
         {
             int doneChipsCount = 0;
@@ -153,6 +168,7 @@ public class ChipCaseManager : MonoBehaviour
             }
         }
 
+        // if there are blue chips to deal... (same process as white chips to deal)
         if (dealtBlueChips.Count > 0)
         {
             int doneChipsCount = 0;
@@ -177,6 +193,7 @@ public class ChipCaseManager : MonoBehaviour
             }
         }
 
+        // if there are black chips to deal... (same process as white chips to deal)
         if (dealtBlackChips.Count > 0)
         {
             int doneChipsCount = 0;
@@ -201,12 +218,16 @@ public class ChipCaseManager : MonoBehaviour
             }
         }
 
+        // if there is a chip to discard
         if (discardedChip != null)
         {
+            // move chip to discard towards chip case (animation)
             discardedChip.transform.position = Vector3.MoveTowards(discardedChip.transform.position, transform.position, Time.deltaTime);
 
+            // if chip to discard is at the chip case, remove from discardedChip (done animation)
             if (discardedChip.transform.position == transform.position)
             {
+                // remove chip to discard from game
                 Destroy(discardedChip);
                 discardedChip = null;
             }
@@ -324,6 +345,8 @@ public class ChipCaseManager : MonoBehaviour
 
     public void DealChips()
     {
+        // for each chip specified by their amount, add chip to game and add chip to specified dealtChips List for animation
+
         for (int i = 0; i < whiteChipAmount; i++)
         {
             GameObject chip = Instantiate(whiteChipPrefab, transform.position, transform.rotation, transform);

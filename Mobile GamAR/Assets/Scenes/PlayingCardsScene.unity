@@ -6458,7 +6458,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handToolbar: {fileID: 610550537}
   deckManager: {fileID: 348365093}
-  chipCaseManager: {fileID: 0}
+  chipCaseManager: {fileID: 240380026}
   arCamera: {fileID: 1746051512}
 --- !u!1 &1234591843
 GameObject:

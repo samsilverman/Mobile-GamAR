@@ -1,71 +1,72 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ManipulationManager : MonoBehaviour
 {
-    GameObject selectedObject;
+    private GameObject selectedObject;
 
     public GameObject handToolbar;
-    ToolbarManager toolbarManager;
+    private ToolbarManager toolbarManager;
 
     public DeckManager deckManager;
     public ChipCaseManager chipCaseManager;
 
     public Transform arCamera;
 
-    bool isMoving;
-    bool isRotating;
-    bool isPeaking;
+    private bool isMoving;
+    private bool isRotating;
 
     private void Start()
     {
-        DeSelectObject();
-
+        // initalization
         toolbarManager = handToolbar.GetComponent<ToolbarManager>();
+
+        // no object selected at start
+        DeSelectObject();
     }
 
-    void Update()
+    private void Update()
     {
+        // if an object is not selected, ignore
         if (selectedObject == null)
         {
             return;
         }
 
+        // if moving an object...
         if (isMoving)
         {
+            // ignore if toolbar is not active
             if (!toolbarManager.GetActive())
             {
                 return;
             }
-            // y of 0 keeps going below surface... not sure why
+            // move object based off toolbar postion (keeping it level with surface)
             selectedObject.transform.position = new Vector3(
                 toolbarManager.toolbarTip.position.x,
                 0.01f,
                 toolbarManager.toolbarTip.position.z);
         }
 
+        // if object is rotating...
         else if (isRotating)
         {
+            // ignore if toolbar is not active
             if (!toolbarManager.GetActive())
             {
                 return;
             }
 
+            // rotate object based off toolbar postion (keeping it level with surface)
             Transform toolbarTip = toolbarManager.toolbarTip;
             selectedObject.transform.LookAt(toolbarTip);
             Quaternion rotation = selectedObject.transform.rotation;
             selectedObject.transform.rotation = new Quaternion(0, rotation.y, 0, rotation.w);
         }
-
-        else if (isPeaking)
-        {
-            // TODO: Implement
-        }
     }
 
     public bool SelectObject(GameObject gameObject)
     {
+        // if another object is selected, ignore
         if (selectedObject != null)
         {
             return false;
@@ -109,19 +110,9 @@ public class ManipulationManager : MonoBehaviour
         {
             return;
         }
-        ClearManipulation(); // might be repetitive
+        ClearManipulation();
         deckManager.DiscardCard(selectedObject);
         DeSelectObject();
-    }
-
-    public void PeakCard()
-    {
-        if (selectedObject == null || !selectedObject.CompareTag("Card"))
-        {
-            return;
-        }
-
-        // TODO: Implement
     }
 
     public void DiscardChip()
@@ -139,7 +130,5 @@ public class ManipulationManager : MonoBehaviour
     {
         isMoving = false;
         isRotating = false;
-        isPeaking = false;
     }
-
 }

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ToolbarManager : MonoBehaviour
 {
@@ -9,7 +7,7 @@ public class ToolbarManager : MonoBehaviour
 
     public Transform toolbarTip;
 
-    bool isActive;
+    private bool isActive;
 
     private void Start()
     {

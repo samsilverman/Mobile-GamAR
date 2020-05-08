@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class DeckManager : MonoBehaviour
@@ -10,47 +9,57 @@ public class DeckManager : MonoBehaviour
     public Transform dealtCardSpawnPoint;
 
     // cards within the deck
-    List<GameObject> deck;
+    private List<GameObject> deck;
 
     // spacing between cards in deck
-    float cardDistance = 0.0005f;
+    private float cardDistance = 0.0005f;
 
-    GameObject dealtCard;
-    List<GameObject> collectedCards;
-    GameObject discardedCard;
+    // card to be dealt
+    private GameObject dealtCard;
+
+    // cards to be collected
+    private List<GameObject> collectedCards;
+
+    // card to be discarded
+    private GameObject discardedCard;
 
     private void Start()
     {
-        CreateNewDeck();
+        // initalizations
         dealtCard = null;
         collectedCards = new List<GameObject>();
         discardedCard = null;
+
+        // create new deck on start
+        CreateNewDeck();
     }
 
     private void Update()
     {
-        // move dealtCard from deck towards dealtCardSpawnPoint
+        // if there is a card to deal
         if (dealtCard != null)
         {
+            // move card to deal towards dealtCardSpawnPoint (animation)
             dealtCard.transform.position = Vector3.MoveTowards(dealtCard.transform.position, dealtCardSpawnPoint.position, Time.deltaTime);
 
-            // clear dealtCard if at dealtCardSpawnPoint
+            // if card to deal is at dealtCardSpawnPoint, remove card to deal from dealtCard (done animation)
             if (dealtCard.transform.position == dealtCardSpawnPoint.position)
             {
                 dealtCard = null;
             }
         }
 
-        // move collectedCards towards deck 
+        // if there are cards to collect
         if (collectedCards.Count > 0)
         {
-            // create copy of collectedCards to allow removal without errors
+            // create copy of collectedCards to allow removal in loop without errors
             GameObject[] collectedCardsCopy = collectedCards.ToArray();
 
+            // move each collected card towards deck (animation)
             foreach (GameObject collectedCard in collectedCardsCopy)
             {
                 collectedCard.transform.position = Vector3.MoveTowards(collectedCard.transform.position, transform.position, Time.deltaTime);
-                // remove collectedCard from collectedCards if at deck
+                // if collected card is at deck, remove from collectedCards (done animation)
                 if (collectedCard.transform.position == transform.position)
                 {
                     collectedCards.Remove(collectedCard);
@@ -64,15 +73,16 @@ public class DeckManager : MonoBehaviour
             }
         }
 
-        // move discardedCard towards deck
+        // if there is a card to discard
         if (discardedCard != null)
         {
+            // move card towards deck (animation)
             discardedCard.transform.position = Vector3.MoveTowards(discardedCard.transform.position, transform.position, Time.deltaTime);
 
-            // clear discardedCard if at deck
+            // if card is at deck, remove from discardedCard (done animation)
             if (discardedCard.transform.position == transform.position)
             {
-                // add discardedCard into deck
+                // add card to deck and shuffle
                 AddCardToTopOfDeck(discardedCard);
                 discardedCard = null;
                 Shuffle();
@@ -83,7 +93,7 @@ public class DeckManager : MonoBehaviour
     private void CreateNewDeck()
     {
         deck = new List<GameObject>();
-        // copy card prefab to deck and add to top
+        // copy card prefab to deck and shuffle
         foreach (GameObject cardPrefab in cards)
         {
             GameObject card = Instantiate(cardPrefab, transform.position, transform.rotation, transform);
@@ -168,11 +178,13 @@ public class DeckManager : MonoBehaviour
 
     public void DealCard()
     {
+        // don't deal from empty deck
         if (deck.Count == 0)
         {
             return;
         }
 
+        // don't deal if currently dealing a card
         if (dealtCard != null)
         {
             return;
@@ -184,7 +196,8 @@ public class DeckManager : MonoBehaviour
 
         // enable BoxCollider to allow detection since not in deck
         card.GetComponent<BoxCollider>().enabled = true;
-        // dealtCard's parent is not longer deck
+
+        // dealtCard's parent is not longer deck (allows for independent manipulation)
         card.transform.parent = transform.parent;
 
         // set dealtCard to card
