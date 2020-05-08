@@ -564,6 +564,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 889bc1cc2c7d2435b94a12a90c1d6da2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ballCollider: {fileID: 1185042109}
   defaultBallPoint: {fileID: 1403222734}
   toolbarManager: {fileID: 1250367653}
   ball: {fileID: 1185042103}
@@ -981,7 +982,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1572932733}
-        m_MethodName: dropJacks
+        m_MethodName: DropJacks
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1721,7 +1722,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &752130891
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1736,9 +1737,8 @@ RectTransform:
   - {fileID: 381331658}
   - {fileID: 1030513630}
   - {fileID: 409594477}
-  - {fileID: 1163166828}
   m_Father: {fileID: 1167359669}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2379,7 +2379,7 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 1572932733}
-        m_MethodName: collectJacks
+        m_MethodName: CollectJacks
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2534,6 +2534,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ballUI: {fileID: 1722721661}
   jacksUI: {fileID: 752130890}
+  jackCountText: {fileID: 1163166829}
 --- !u!1 &1163166827
 GameObject:
   m_ObjectHideFlags: 0
@@ -2546,7 +2547,7 @@ GameObject:
   - component: {fileID: 1163166830}
   - component: {fileID: 1163166829}
   m_Layer: 5
-  m_Name: Amount Text
+  m_Name: Jacks Count Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2559,12 +2560,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1163166827}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 752130891}
-  m_RootOrder: 3
+  m_Father: {fileID: 1167359669}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -2701,6 +2702,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 1163166828}
   - {fileID: 1986409605}
   - {fileID: 1202848109}
   - {fileID: 1722721662}
@@ -3047,7 +3049,7 @@ RectTransform:
   m_Children:
   - {fileID: 436991054}
   m_Father: {fileID: 1167359669}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -3525,7 +3527,18 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 314727872}
-        m_MethodName: dropBall
+        m_MethodName: DropBall
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1250367653}
+        m_MethodName: StartJacksPlay
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4348,7 +4361,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1722721662
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4364,7 +4377,7 @@ RectTransform:
   - {fileID: 1982523695}
   - {fileID: 1301811360}
   m_Father: {fileID: 1167359669}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -4798,7 +4811,7 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 314727872}
-        m_MethodName: collectBall
+        m_MethodName: CollectBall
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4897,7 +4910,7 @@ RectTransform:
   m_Children:
   - {fileID: 1200968990}
   m_Father: {fileID: 1167359669}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

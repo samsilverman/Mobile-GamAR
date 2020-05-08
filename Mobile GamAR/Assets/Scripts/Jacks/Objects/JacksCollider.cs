@@ -15,7 +15,7 @@ public class JacksCollider : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Respawn"))
         {
-            jacksManager.moveJackToDefaultPosition(gameObject);
+            jacksManager.MoveJackToDefaultPosition(gameObject);
         }
     }
 }

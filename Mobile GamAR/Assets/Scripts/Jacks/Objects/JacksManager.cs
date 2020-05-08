@@ -12,16 +12,15 @@ public class JacksManager : MonoBehaviour
 
     bool inHand;
 
-    // Start is called before the first frame update
     void Start()
     {
         inHand = false;
-        moveJacksToDefaultPosition();
+        MoveJacksToDefaultPosition();
     }
 
-    // Update is called once per frame
     void Update()
     {
+        // if jacks are in hand, keep all jacks on toolbar
         if (inHand)
         {
             foreach (GameObject jack in jacks)
@@ -31,6 +30,7 @@ public class JacksManager : MonoBehaviour
             }
         }
 
+        // if jacks re not in hand and are not falling, set kinematic to true
         else
         {
             foreach (GameObject jack in jacks)
@@ -44,7 +44,7 @@ public class JacksManager : MonoBehaviour
         }
     }
 
-    public void collectJacks()
+    public void CollectJacks()
     {
         inHand = true;
 
@@ -55,7 +55,7 @@ public class JacksManager : MonoBehaviour
         }
     }
 
-    public void dropJacks()
+    public void DropJacks()
     {
         inHand = false;
 
@@ -66,21 +66,23 @@ public class JacksManager : MonoBehaviour
         }
     }
 
-    public bool isHoldingJacks()
+    public bool IsHoldingJacks()
     {
         return inHand;
     }
 
-    public void moveJacksToDefaultPosition()
+    public void MoveJacksToDefaultPosition()
     {
         foreach (GameObject jack in jacks)
         {
-            moveJackToDefaultPosition(jack);
+            MoveJackToDefaultPosition(jack);
         }
     }
 
-    public void moveJackToDefaultPosition(GameObject jack)
+    public void MoveJackToDefaultPosition(GameObject jack)
     {
+        // display jacks in a even spaced line
+
         Rigidbody rb = jack.GetComponent<Rigidbody>();
         rb.isKinematic = true;
 

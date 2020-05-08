@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class JackUIManager : MonoBehaviour
 {
     public GameObject ballUI;
     public GameObject jacksUI;
+
+    public Text jackCountText;
 
     // Start is called before the first frame update
     void Start()
@@ -17,7 +20,7 @@ public class JackUIManager : MonoBehaviour
     public void EnableBallUI()
     {
         ballUI.SetActive(true);
-        jacksUI.SetActive(false);
+        DisableJacksUI();
     }
 
     public void DisableBallUI()
@@ -27,12 +30,24 @@ public class JackUIManager : MonoBehaviour
 
     public void EnableJacksUI()
     {
-        ballUI.SetActive(false);
+        DisableBallUI();
+        clearJackLabel();
         jacksUI.SetActive(true);
     }
 
     public void DisableJacksUI()
     {
+        clearJackLabel();
         jacksUI.SetActive(false);
+    }
+
+    public void UpdateJackLabel(int count)
+    {
+        jackCountText.text = "(" + count.ToString() + ")";
+    }
+
+    void clearJackLabel()
+    {
+        jackCountText.text = "";
     }
 }

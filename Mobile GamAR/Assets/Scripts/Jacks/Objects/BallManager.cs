@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BallManager : MonoBehaviour
 {
+    public BallCollider ballCollider;
+
     public Transform defaultBallPoint;
 
     public JacksToolbarManager toolbarManager;
@@ -12,22 +14,21 @@ public class BallManager : MonoBehaviour
 
     bool inHand;
 
-    // Start is called before the first frame update
     void Start()
     {
         inHand = false;
-        moveBallToDefaultPosition();
+        MoveBallToDefaultPosition();
     }
 
-    // Update is called once per frame
     void Update()
     {
+        // if ball is in hand, keep ball on toolbar
         if (inHand)
         {
             ball.transform.position = toolbarManager.toolbarTip.position;
         }
 
-
+        // if ball is not in hand and is done bouncing, set ball to kinematic
         else
         {
             Rigidbody rb = ball.GetComponent<Rigidbody>();
@@ -39,7 +40,7 @@ public class BallManager : MonoBehaviour
         }
     }
 
-    public void collectBall()
+    public void CollectBall()
     {
         inHand = true;
 
@@ -47,25 +48,30 @@ public class BallManager : MonoBehaviour
         rb.isKinematic = true;
     }
 
-    public void dropBall()
+    public void DropBall()
     {
         inHand = false;
-
         Rigidbody rb = ball.GetComponent<Rigidbody>();
         rb.isKinematic = false;
+        ballCollider.ResetBounce();
     }
 
-    public bool isHoldingBall()
+    public bool IsHoldingBall()
     {
         return inHand;
     }
 
-    public void moveBallToDefaultPosition()
+    public void MoveBallToDefaultPosition()
     {
         Rigidbody rb = ball.GetComponent<Rigidbody>();
         rb.isKinematic = true;
 
         ball.transform.position = defaultBallPoint.position;
+    }
+
+    public bool HasBounced()
+    {
+        return ballCollider.HasBounced();
     }
 
 }

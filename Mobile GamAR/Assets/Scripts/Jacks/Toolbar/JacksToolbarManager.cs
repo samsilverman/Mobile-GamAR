@@ -11,9 +11,39 @@ public class JacksToolbarManager : MonoBehaviour
     public BallManager ballManager;
     public JacksManager jacksManager;
 
+    bool jackPlayActive;
+    List<GameObject> jacksGrabbed;
+
+    private void Start()
+    {
+        EndJackPlay();
+    }
+
+    private void Update()
+    {
+        // if its an active jacks turn...
+        if (jackPlayActive)
+        {
+            //// if ball bounces, end jacks turn
+            //if (ballManager.HasBounced())
+            //{
+            //    EndJackPlay();
+            //}
+            // keep all grabbed jacks in hand
+            //else
+            //{
+            foreach (GameObject jack in jacksGrabbed)
+            {
+                jack.transform.position = toolbarTip.position;
+            }
+            //}
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
-        if (holdingObject())
+        // if already holding ball or jacks, ignore
+        if (HoldingObject())
         {
             return;
         }
@@ -21,7 +51,15 @@ public class JacksToolbarManager : MonoBehaviour
         if (other.gameObject.CompareTag("Ball"))
         {
             Rigidbody rb = other.gameObject.GetComponent<Rigidbody>();
-            if (rb.isKinematic)
+
+            // if its a jacks turn, end the turn and reset all pieces
+            if (jackPlayActive)
+            {
+                EndJackPlay();
+            }
+
+            // if ball is not bouncing, enable ball ui
+            else if (rb.isKinematic)
             {
                 uiManager.EnableBallUI();
             }
@@ -30,15 +68,40 @@ public class JacksToolbarManager : MonoBehaviour
         else if (other.gameObject.CompareTag("Jack"))
         {
             Rigidbody rb = other.gameObject.GetComponent<Rigidbody>();
-            if (rb.isKinematic)
+
+            // if its a jacks turn, grab the jack and increment dispay
+            if (jackPlayActive)
+            {
+                jacksGrabbed.Add(other.gameObject);
+                uiManager.UpdateJackLabel(jacksGrabbed.Count);
+
+            }
+
+            // if jack is not being thrown, enable jacks ui
+            else if (rb.isKinematic)
             {
                 uiManager.EnableJacksUI();
             }
         }
     }
 
-    bool holdingObject()
+    bool HoldingObject()
     {
-        return ballManager.isHoldingBall() || jacksManager.isHoldingJacks();
+        return ballManager.IsHoldingBall() || jacksManager.IsHoldingJacks();
+    }
+
+    public void StartJacksPlay()
+    {
+        jackPlayActive = true;
+        uiManager.UpdateJackLabel(jacksGrabbed.Count);
+    }
+
+    void EndJackPlay()
+    {
+        jackPlayActive = false;
+        jacksGrabbed = new List<GameObject>();
+
+        ballManager.MoveBallToDefaultPosition();
+        jacksManager.MoveJacksToDefaultPosition();
     }
 }
