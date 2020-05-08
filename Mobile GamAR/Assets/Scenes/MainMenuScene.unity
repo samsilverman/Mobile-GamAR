@@ -1785,7 +1785,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 150, y: 0}
-  m_SizeDelta: {x: 150, y: 200}
+  m_SizeDelta: {x: 200, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &961379425
 MonoBehaviour:
@@ -2052,7 +2052,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 550, y: 700}
+  m_SizeDelta: {x: 550, y: 750}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1064394700
 MonoBehaviour:
@@ -2164,14 +2164,23 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Image Targets:
+  m_Text: 'About:
+
+
+    Access a bouncing ball and jacks to play the classic game
+    of Jacks.
+
+
+
+
+
+    Image Targets:
 
 
     - Stones: Ball, Jacks, & Table
 
-
-    - Vortex: Hand
-    toolbar'
+    -
+    Vortex: Hand toolbar'
 --- !u!222 &1119176666
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3185,7 +3194,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -150, y: 0}
-  m_SizeDelta: {x: 150, y: 200}
+  m_SizeDelta: {x: 200, y: 250}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1552382746
 MonoBehaviour:
@@ -3520,7 +3529,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 600, y: 700}
+  m_SizeDelta: {x: 600, y: 750}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1870170367
 MonoBehaviour:
@@ -3553,17 +3562,25 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Image Targets:
+  m_Text: 'About:
+
+
+    Access a deck of cards and poker chips to play a variety
+    of card games.
+
+
+
+
+
+    Image Targets:
 
 
     - Tarmac: Deck & table
 
+    - Stones:
+    Chip case
 
-    - Stones: Chip case
-
-
-    -
-    Vortex: Hand toolbar'
+    - Vortex: Hand toolbar'
 --- !u!222 &1870170368
 CanvasRenderer:
   m_ObjectHideFlags: 0

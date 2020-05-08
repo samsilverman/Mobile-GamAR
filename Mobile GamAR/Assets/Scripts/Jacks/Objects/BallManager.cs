@@ -67,6 +67,7 @@ public class BallManager : MonoBehaviour
         rb.isKinematic = true;
 
         ball.transform.position = defaultBallPoint.position;
+        ball.transform.rotation = defaultBallPoint.rotation;
     }
 
     public bool HasBounced()

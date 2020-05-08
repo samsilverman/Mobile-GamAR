@@ -8,13 +8,29 @@ public class JackUIManager : MonoBehaviour
     public GameObject ballUI;
     public GameObject jacksUI;
 
+    public GameObject leftButton;
+    public GameObject rightButton;
+
     public Text jackCountText;
 
     // Start is called before the first frame update
     void Start()
     {
+        DisableMoveUI();
         DisableBallUI();
         DisableJacksUI();
+    }
+
+    public void EnableMoveUI()
+    {
+        leftButton.SetActive(true);
+        rightButton.SetActive(true);
+    }
+
+    public void DisableMoveUI()
+    {
+        leftButton.SetActive(false);
+        rightButton.SetActive(false);
     }
 
     public void EnableBallUI()

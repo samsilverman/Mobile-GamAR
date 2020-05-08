@@ -1,13 +1,9 @@
 ﻿<Properties StartupConfiguration="{C81F233A-5AC8-A155-814F-8574B1013642}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Scenes/SceneManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Jacks/Objects/BallManager.cs">
     <Files>
-      <File FileName="Assets/Scripts/Jacks/Toolbar/JacksToolbarManager.cs" Line="39" Column="16" />
-      <File FileName="Assets/Scripts/Jacks/UI/JackUIManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Jacks/UI/JackUIManager.cs" Line="19" Column="25" />
       <File FileName="Assets/Scripts/Jacks/Objects/JacksManager.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Jacks/Objects/JacksCollider.cs" Line="18" Column="27" />
-      <File FileName="Assets/Scripts/Jacks/Objects/BallManager.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Jacks/Objects/BallCollider.cs" Line="23" Column="1" />
-      <File FileName="Assets/Scripts/Scenes/SceneManager.cs" Line="4" Column="34" />
+      <File FileName="Assets/Scripts/Jacks/Objects/BallManager.cs" Line="70" Column="11" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -16,13 +12,11 @@
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
                 <Node name="Jacks" expanded="True">
-                  <Node name="Motion" expanded="True" />
-                  <Node name="Objects" expanded="True" />
+                  <Node name="Objects" expanded="True">
+                    <Node name="BallManager.cs" selected="True" />
+                  </Node>
                   <Node name="Toolbar" expanded="True" />
                   <Node name="UI" expanded="True" />
-                </Node>
-                <Node name="Scenes" expanded="True">
-                  <Node name="SceneManager.cs" selected="True" />
                 </Node>
               </Node>
             </Node>

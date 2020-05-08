@@ -88,7 +88,7 @@ public class JacksManager : MonoBehaviour
 
         int jackIndex = int.Parse(jack.name.Substring(12, 1));
 
-        float offset = (-4.5f + jackIndex) / 10;
+        float offset = (-4.5f + jackIndex) / 100;
 
         Vector3 newPostion = new Vector3(
             defaultJacksPoint.position.x + offset,
@@ -97,5 +97,6 @@ public class JacksManager : MonoBehaviour
             );
 
         jack.transform.position = newPostion;
+        jack.transform.rotation = defaultJacksPoint.rotation;
     }
 }
