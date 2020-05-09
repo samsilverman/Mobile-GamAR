@@ -5,7 +5,14 @@
         <State name="__root__">
           <Node name="Mobile GamAR" expanded="True">
             <Node name="Assets" expanded="True">
-              <Node name="Scripts" expanded="True" />
+              <Node name="Scripts" expanded="True">
+                <Node name="Bots" expanded="True">
+                  <Node name="BotController.cs" selected="True" />
+                </Node>
+                <Node name="Wayfinding" expanded="True">
+                  <Node name="OffScreenIndicator" expanded="True" />
+                </Node>
+              </Node>
             </Node>
           </Node>
         </State>
@@ -14,7 +21,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="cc8da79e-9b3a-43ef-a786-efb6064cd6c0" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="dbec769f-94d1-4d39-8684-805494eab730" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

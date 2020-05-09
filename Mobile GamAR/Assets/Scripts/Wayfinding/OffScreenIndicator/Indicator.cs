@@ -36,7 +36,7 @@ public class Indicator : MonoBehaviour
 
     public void SetDistanceText(float value)
     {
-        distanceText.text = value >= 0 ? Mathf.Floor(value) + " m" : "";
+        distanceText.text = value >= 0 ? Mathf.Floor(value) + " cm" : "";
     }
 
     public void SetTextRotation(Quaternion rotation)
