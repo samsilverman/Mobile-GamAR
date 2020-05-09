@@ -42,7 +42,7 @@ We used the following provided image targets:
 
 10. Video URL: 
 
-TODO
+https://youtu.be/0zFvWrOs-L8
 
 11. Missing features:
 
