@@ -375,7 +375,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3178111929766867404}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b09475a83cae9445698a0013b69c6386, type: 3}
+  m_Script: {fileID: 11500000, guid: b1b834a2f743e4ae9a8d946557a713fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   whiteChipPrefab: {fileID: 1250670868006796, guid: 0728c0f6588524f6e9186140450ed6bd,
