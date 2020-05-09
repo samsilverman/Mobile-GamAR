@@ -46,7 +46,7 @@ TODO
 
 11. Missing features:
 
-- Playing Cards: We were unable to support peaking at cards. Ideally, we wanted to allow users to look at cards without revealing them to other players.
+- Playing Cards: We were unable to support peeking at cards. Ideally, we wanted to allow users to look at cards without revealing them to other players.
 
 - Playing Cards: We were unable to support group moving of chips and cards. Ideally, we wanted to support easier moving capabilities to allow users to move many cards and chips at once rather than one at a time.
 
