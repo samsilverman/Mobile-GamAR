@@ -54,4 +54,5 @@ TODO
 
 13. Asset sources: 
 
-TODO
+- Free Little Games Asset Pack by Ferocious Industries: Used for game peices
+- TODO: Prefabs for wayfinding
