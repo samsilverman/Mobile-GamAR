@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Mobile GamAR/Assets/Scripts/Jacks/Motion/MotionManager.cs.meta
 guid: e1b0b214d7c0f42a78c55b2f0656223f
+=======
+guid: 7594df6ec0b2df74a8ca26f537c161c6
+>>>>>>> dev/wayfinding:Mobile GamAR/Assets/Scripts/Wayfinding/OffScreenIndicator/OffScreenIndicatorCore.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2

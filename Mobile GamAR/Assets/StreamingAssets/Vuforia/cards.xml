@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
+  <Tracking>
+    <ImageTarget name="king_of_spades2" size="1.000000 1.452000" />
+    <ImageTarget name="king_of_hearts2" size="1.000000 1.452000" />
+    <ImageTarget name="king_of_diamonds2" size="1.000000 1.452000" />
+    <ImageTarget name="king_of_clubs2" size="1.000000 1.452000" />
+    <ImageTarget name="queen_of_hearts2" size="1.000000 1.452000" />
+    <ImageTarget name="queen_of_diamonds2" size="1.000000 1.452000" />
+    <ImageTarget name="queen_of_clubs2" size="1.000000 1.452000" />
+    <ImageTarget name="queen_of_spades2" size="1.000000 1.452000" />
+  </Tracking>
+</QCARConfig>
