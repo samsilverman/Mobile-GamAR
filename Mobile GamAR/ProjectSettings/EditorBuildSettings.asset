@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/TestSceneJianjin.unity
+    guid: 0f5f3fd7ed2784e2ea8637e04a2c9bed
   m_configObjects: {}
