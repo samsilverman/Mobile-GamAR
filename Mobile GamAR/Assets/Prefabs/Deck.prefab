@@ -43,7 +43,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 452055880973347715}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe248e45a20c949b0b40cb50e8e505ec, type: 3}
+  m_Script: {fileID: 11500000, guid: 5918e180641464a66808686155ff9654, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cards:

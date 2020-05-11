@@ -8,4 +8,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TestSceneJianjin.unity
     guid: 0f5f3fd7ed2784e2ea8637e04a2c9bed
+    path: Assets/Scenes/MainMenuScene.unity
+    guid: b6df7b04d085e43b8b617f88e6672217
+  - enabled: 1
+    path: Assets/Scenes/PlayingCardsScene.unity
+    guid: e66221abae7bb4cf79027321d98fad96
+  - enabled: 1
+    path: Assets/Scenes/JacksScene.unity
+    guid: 7d258f987d3c14821935b07e9bd036a4
   m_configObjects: {}

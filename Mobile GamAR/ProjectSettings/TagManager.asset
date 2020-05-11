@@ -9,6 +9,10 @@ TagManager:
   - Card
   - Chip Case
   - Chip
+  - Ball
+  - Jack
+  - BallManager
+  - JacksManager
   layers:
   - Default
   - TransparentFX
@@ -18,7 +22,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Minimap
   - 
   - 
   - 

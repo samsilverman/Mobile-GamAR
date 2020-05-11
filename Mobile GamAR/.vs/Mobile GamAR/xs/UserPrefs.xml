@@ -1,28 +1,17 @@
 ﻿<Properties StartupConfiguration="{C81F233A-5AC8-A155-814F-8574B1013642}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Blackjack/Chip Case/ChipCaseManager.cs">
-    <Files>
-      <File FileName="Assets/Scripts/Blackjack/Deck/DeckManager.cs" Line="20" Column="33" />
-      <File FileName="Assets/Scripts/Blackjack/Manipulation/ManipulationManager.cs" Line="130" Column="1" />
-      <File FileName="Assets/Scripts/Blackjack/Toolbar/ToolbarManager.cs" Line="37" Column="14" />
-      <File FileName="Assets/Scripts/Blackjack/Chip Case/ChipCaseManager.cs" Line="1" Column="1" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Mobile GamAR" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="Blackjack" expanded="True">
-                  <Node name="Card Stack" expanded="True" />
-                  <Node name="Chip Case" expanded="True">
-                    <Node name="ChipCaseManager.cs" selected="True" />
-                  </Node>
-                  <Node name="Chip Stack" expanded="True" />
-                  <Node name="Deck" expanded="True" />
-                  <Node name="Manipulation" expanded="True" />
-                  <Node name="Toolbar" expanded="True" />
+                <Node name="Bots" expanded="True">
+                  <Node name="BotController.cs" selected="True" />
                 </Node>
-                <Node name="TestPlayingCard" expanded="True" />
+                <Node name="Wayfinding" expanded="True">
+                  <Node name="OffScreenIndicator" expanded="True" />
+                </Node>
               </Node>
             </Node>
           </Node>
@@ -32,7 +21,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="ce312478-6719-4190-b5d0-83342766af4d" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="dbec769f-94d1-4d39-8684-805494eab730" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
