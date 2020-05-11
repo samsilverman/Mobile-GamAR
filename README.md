@@ -11,7 +11,7 @@ Mobile GamAR
 
 3. Date of Submission:
 
-TODO
+3/11/2020
 
 4. Development Platform:
 
@@ -27,7 +27,74 @@ Mobile GamAR
 
 7. Project directory overview:
 
-TODO
+A high level overview of each scene within Unity and the important game objects are listed below (with descriptions added):
+
+MainMenuScene
+- Canvas
+  - Background Image: Provides the green background for the UI
+  - GamesUI: Contains buttons for users to select specific game UIs (cards, jacks)
+  - AboutUI: Contains information about the app
+  - CreditsUI: Contains credits about the app
+  - CardsUI: Contains info on the cards game, calls on SceneManager to load game
+  - JacksUI: Contains info on the jacks game, calls on SceneManager to load game
+- SceneManager: Loads the PlayingCardsScene and JacksScene
+
+PlayingCardScene
+- ARCamera
+- Directional Light
+- Canvas
+  - Wayfinding UI: Contains UI elements for wayfinding (minimap, arrows, etc.)
+  - Deck UI: Displays actions (buttons) when deck selected
+  - Card UI: Displays actions (buttons) when card selected
+  - Chip Case UI: Displays actions (buttons) when chip case selected
+  - Chip UI: Displays actions (buttons) when chip selected
+  - Home Button: Returns to MainMenuScene
+- Managers
+  - ManipulationManager: Controls manipulations for all game objects
+  - UIManager: Controls which Canvas/UI componenets are showing
+  - MinimapManager: Controls appearance of minimap and wayfinding componenets
+  - SceneManager: Loads MainMenuScene for Home Button
+- CardTable ImageTarget
+  - CardTable Scale: Scale of world to fit on Image Target
+    - Game Table
+    - Deck: Deck for game
+    - CPU Bot 1: Bot 1
+    - CPU Bot 2: Bot 2
+    - Game Table (Minimap): Game Table copy for minimap
+- ChipCase ImageTarget
+  - CardTable Scale: Scale of chip case to fit on Image Target
+    - Chip Case
+- Hand ImageTarget
+  - Hand Toolbar: Physical toolbar wand
+    - Toolbar Tip: Location for which interactions reference
+
+JacksScene
+- ARCamera
+- Directional Light
+- Canvas
+  - Jacks Count Text: Displays # of jacks collected in turn
+  - Left Button: Button to move player left
+  - Right Button: Button to move player right
+  - Ball UI: Displays actions (buttons) when ball selected
+  - Jacks UI: Displays actions (buttons) when jacks selected
+  - Home Button: Returns to MainMenuScene
+- Managers
+  - MotionManager: Controls player movement around world
+  - JacksManager: Controls jacks actions and movement
+  - UIManager: Controls which Canvas/UI componenets are showing
+  - BallManager: Controls ball actions and movement
+  - SceneManager: Loads MainMenuScene for Home Button
+- Jacks ImageTarget
+  - Jacks Scale: Scale of world to fit on Image Target
+    - Game Table
+    - Ball: Ball for game
+    - Jacks: Jacks for game
+    - Default Ball Position
+    - Default Jacks Position
+    - Respawn Zone
+- Hand ImageTarget
+  - Hand Toolbar: Physical toolbar wand
+    - Toolbar Tip: Location for which interactions reference
 
 8. Special Instructions, if any, for deploying your app: 
 
