@@ -11,7 +11,7 @@ Mobile GamAR
 
 3. Date of Submission:
 
-3/11/2020
+5/12/2020
 
 4. Development Platform:
 
@@ -96,6 +96,17 @@ JacksScene
   - Hand Toolbar: Physical toolbar wand
     - Toolbar Tip: Location for which interactions reference
 
+Toolkit to Augment Card Games
+- QRCode: Code to generate QRCode
+  - make_qrcode.py: Generate a default QRCode dataset
+  - cread.sh & upload.py: Upload the generated dataset to Vuforia as dataset.
+  - QRCode.unitypackage: the resulting Vuforia dataset as a result of scripts above.
+
+- MakeConfig: Script to automatically create a configuration list
+  - make_poker.py: Extract individual poker card images from poker_source.jpg
+  - make_printables.py: Synthesize enhanced poker card images.
+  - make_list.py: Make the configuration list.
+
 8. Special Instructions, if any, for deploying your app: 
 
 Make sure all scenes are added to build with the Main Menu Scene loading first.
@@ -119,6 +130,7 @@ https://youtu.be/0zFvWrOs-L8
 12. Bugs in your code and in any system you used:
 
 - Jacks: when collecting the ball in a jacks turn, the collected jacks in your hand may push the ball rather than collecting it. This may be because the ball must make contact with the hand toolbar and is instead contacting the jack pieces causing it to be pushed away.
+- The toolkit for augmenting card game is not integrated with main system.
 
 13. Asset sources: 
 
