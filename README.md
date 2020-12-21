@@ -1,5 +1,13 @@
 # Mobile-GamAR
 
+[Explore the Docs 📖](https://github.com/samsilverman/Mobile-GamAR/wiki)
+
+[View Demo 🎥](https://youtu.be/0zFvWrOs-L8)
+
+[Report Bug 🐛](https://github.com/samsilverman/Mobile-GamAR/issues)
+
+[Request Feature 💻](https://github.com/samsilverman/Mobile-GamAR/issues)
+
 ![Mobile GamAR Spashscreen](Misc/Images/splashscreen.png)
 
 Mobile GamAR is a mobile augmented reality application that allows users to conveniently and intuitively play virtual board and card games. With the aid of a mobile device, users can control a variety game pieces for Poker and Jacks.
