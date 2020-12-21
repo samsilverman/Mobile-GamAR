@@ -1,12 +1,7 @@
 # Mobile-GamAR
 
-[Explore the Docs 📖](https://github.com/samsilverman/Mobile-GamAR/wiki)
-
-[View Demo 🎥](https://youtu.be/0zFvWrOs-L8)
-
-[Report Bug 🐛](https://github.com/samsilverman/Mobile-GamAR/issues)
-
-[Request Feature 💻](https://github.com/samsilverman/Mobile-GamAR/issues)
+| [Explore the Docs 📖](https://github.com/samsilverman/Mobile-GamAR/wiki) | [View Demo 🎥](https://youtu.be/0zFvWrOs-L8) | [Report Bug 🐛](https://github.com/samsilverman/Mobile-GamAR/issues) | [Request Feature 💻](https://github.com/samsilverman/Mobile-GamAR/issues) |
+|--------------------|-------------|--------------|-------------------|
 
 ![Mobile GamAR Spashscreen](Misc/Images/splashscreen.png)
 
@@ -30,6 +25,7 @@ You will need to install the following software to run Mobile GamAR:
 * [Unity](https://unity3d.com/get-unity/download/archive) - Version 2019.3.12f1 (Newer versions may work but untested).
 
 You will need the following accounts set up:
+
 * [Vuforia Developer Account](https://developer.vuforia.com/vui/auth/login)
 * [Apple ID](https://support.apple.com/en-us/HT204316)
 
