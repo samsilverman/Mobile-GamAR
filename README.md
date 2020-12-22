@@ -5,7 +5,7 @@
 
 ![Mobile GamAR Spashscreen](Misc/Images/splashscreen.png)
 
-Mobile GamAR is a mobile augmented reality application that allows users to conveniently and intuitively play virtual board and card games. With the aid of a mobile device, users can control a variety game pieces for Poker and Jacks.
+Mobile GamAR is a mobile augmented reality application that allows users to conveniently and intuitively play virtual board and card games. With the aid of a mobile device, users can control a variety of game pieces for Poker and Jacks.
 
 ### Built With
 
@@ -35,7 +35,7 @@ You will need to print a variety of AR targets used in the project. These target
 * Tarmac
 * Vortex
 
-**NOTE:** Image targets work best when kept straight and crease free. It is best if the image targets are glued to a hard surface like cardboard.
+**NOTE:** Image targets work best when kept straight and crease-free. It is best if the image targets are glued to a hard surface like cardboard.
 
 ### Installation
 
@@ -71,7 +71,7 @@ The hand toolbar allows for the selection and manipulation of a variety of game 
 
 ## Contribute
 
-Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
 1. Fork the Project
 2. Create your Feature Branch
